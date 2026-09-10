@@ -53,16 +53,26 @@ spawnPetals();
 // ---------- motivos para te amar ----------
 // Edite/adicione livremente os motivos abaixo.
 const REASONS = [
-  "porque seu sorriso muda meu dia inteiro",
-  "pela forma como você cuida de quem você ama",
-  "porque você me faz querer ser melhor todos os dias",
-  "pelo seu jeito único de ver o mundo",
-  "porque com você tudo fica mais leve",
-  "pela sua força, mesmo nos dias difíceis",
-  "porque você é o meu lugar favorito",
-  "por cada risada boba que a gente dá junto",
-  "porque você acredita em mim, até quando eu duvido",
-  "porque simplesmente é você",
+  "Pelo alívio que você traz ao meu coração.",
+  "Pela forma como tudo parece mais leve quando estou com você.",
+  "Pelo jeito que o seu sorriso consegue acalmar até os meus dias mais difíceis.",
+  "Pela paz que a sua presença me traz, mesmo quando não dizemos nada.",
+  "Pelo seu jeito único e bonito de enxergar o mundo.",
+  "Pela forma como você consegue fazer meu coração se sentir em casa.",
+  "Pelo carinho que existe até nos seus pequenos gestos.",
+  "Pela maneira como você faz momentos simples se tornarem especiais.",
+  "Pela sua força, até nos dias em que você esquece o quanto é forte.",
+  "Pelo jeito que você me faz sorrir sem nem perceber.",
+  "Pela sensação boa que fica em mim depois de estar perto de você.",
+  "Pelo brilho que existe no seu olhar e que, de algum jeito, sempre encontra o meu.",
+  "Pela forma como meu coração fica mais tranquilo quando sei que você está por perto.",
+  "Pelo jeito que você faz eu querer conhecer cada pedacinho seu.",
+  "Pelas conversas que eu poderia passar horas tendo com você sem nunca me cansar.",
+  "Pelo seu jeito de existir, tão seu, tão único, tão impossível de não admirar.",
+  "Pela saudade que aparece mesmo pouco tempo depois de eu me despedir de você.",
+  "Pelo jeito que meu coração acelera quando você chega perto.",
+  "Pela vontade de guardar cada momento ao seu lado como se fossem pequenos tesouros.",
+  "E, principalmente, por ser você. Porque quanto mais eu te conheço, mais motivos encontro para gostar de você.",
 ];
 
 let reasonIndex = 0;
