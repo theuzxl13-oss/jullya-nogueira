@@ -1,0 +1,353 @@
+:root {
+  --rose-50: #fff5f6;
+  --rose-100: #ffe9ec;
+  --rose-200: #ffd2d9;
+  --rose-300: #f7a8b8;
+  --rose-400: #e8829a;
+  --rose-500: #d05d78;
+  --rose-600: #b03e5c;
+  --ink: #4a2c34;
+  --ink-soft: #7a5560;
+  --paper: #fffaf9;
+  --gold: #c9a15a;
+  --shadow: 0 10px 30px rgba(176, 62, 92, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--rose-50) 0%, var(--paper) 30%);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---------- floating petals ---------- */
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -5%;
+  font-size: 1.1rem;
+  color: var(--rose-300);
+  opacity: 0.7;
+  animation: fall linear infinite;
+  will-change: transform;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8vh 6vw 6vh;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.72rem;
+  color: var(--rose-500);
+  margin: 0 0 1.2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.hero-title {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: clamp(3rem, 10vw, 6rem);
+  margin: 0;
+  color: var(--rose-600);
+  text-shadow: 0 2px 24px rgba(208, 93, 120, 0.25);
+}
+
+.hero-title .amp {
+  color: var(--gold);
+  padding: 0 0.15em;
+}
+
+.hero-sub {
+  margin: 0.6rem 0 3rem;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.counter {
+  display: flex;
+  gap: clamp(0.8rem, 4vw, 2.2rem);
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.6rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--rose-200);
+  border-radius: 16px;
+  padding: 1rem 0.8rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.counter-number {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 600;
+  color: var(--rose-600);
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+
+.counter-caption {
+  margin-top: 1.6rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+.scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 3.2rem;
+  background: linear-gradient(var(--rose-400), transparent);
+  animation: pulse-down 2s ease-in-out infinite;
+}
+
+@keyframes pulse-down {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ---------- sections ---------- */
+.section {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 6rem 6vw;
+  text-align: center;
+}
+
+.section-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--rose-600);
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+}
+
+.section-hint {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0 0 2.5rem;
+}
+
+.section-hint code {
+  background: var(--rose-100);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-style: normal;
+}
+
+/* ---------- gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--rose-100), var(--rose-200));
+  color: var(--rose-500);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px dashed var(--rose-300);
+}
+
+/* ---------- letter ---------- */
+.letter {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--rose-200);
+  border-radius: 20px;
+  padding: clamp(1.8rem, 5vw, 3.2rem);
+  box-shadow: var(--shadow);
+  text-align: left;
+  font-size: 1.15rem;
+}
+
+.letter p {
+  margin: 0 0 1.2rem;
+}
+
+.letter .signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.6rem;
+  color: var(--rose-600);
+  margin-top: 2rem;
+}
+
+/* ---------- reasons ---------- */
+.reasons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.reveal-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--rose-500);
+  font-family: inherit;
+}
+
+.reveal-btn .heart {
+  font-size: 2.6rem;
+  color: var(--rose-500);
+  transition: transform 0.2s ease;
+}
+
+.reveal-btn:hover .heart,
+.reveal-btn:focus-visible .heart {
+  transform: scale(1.15);
+}
+
+.reveal-btn:active .heart {
+  transform: scale(0.92);
+}
+
+.reveal-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 520px;
+}
+
+.reasons-list li {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--rose-200);
+  border-radius: 14px;
+  padding: 0.9rem 1.3rem;
+  font-size: 1.05rem;
+  animation: rise 0.4s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 420px) {
+  .counter {
+    gap: 0.6rem;
+  }
+  .counter-item {
+    min-width: 3rem;
+    padding: 0.75rem 0.5rem;
+  }
+}
