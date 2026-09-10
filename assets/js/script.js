@@ -29,48 +29,43 @@ function updateCounter() {
 updateCounter();
 setInterval(updateCounter, 1000);
 
-// ---------- galeria (fotos carregadas direto do repositório do GitHub) ----------
-// As fotos ficam guardadas em assets/img/ no GitHub e a galeria carrega
-// automaticamente a partir de lá — para adicionar uma foto nova, basta
-// subir o arquivo para essa pasta (sem precisar editar o HTML).
-const GITHUB_OWNER = "theuzxl13-oss";
-const GITHUB_REPO = "jullya-nogueira";
-const GITHUB_BRANCH = "claude/romantic-website-girlfriend-bthdki";
-const GITHUB_IMG_PATH = "assets/img";
+// ---------- galeria ----------
+// Lista as fotos que ficam em assets/img/. Usar uma lista fixa (em vez de
+// consultar a API do GitHub) faz a galeria funcionar mesmo com o
+// repositório privado — a API do GitHub exige autenticação para
+// repositórios privados, mas os arquivos do próprio site continuam sendo
+// servidos normalmente pelo GitHub Pages.
+// Para adicionar uma foto nova: suba o arquivo para assets/img/ e
+// acrescente o nome dele nesta lista.
+const GALLERY_PHOTOS = [
+  "assets/img/01.jpg",
+  "assets/img/02.jpg",
+  "assets/img/03.jpg",
+  "assets/img/04.jpg",
+  "assets/img/05.jpg",
+  "assets/img/06.jpg",
+  "assets/img/07.jpg",
+];
 
 const galleryEl = document.getElementById("gallery");
 
-async function loadGallery() {
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_IMG_PATH}?ref=${GITHUB_BRANCH}`
-    );
-    if (!res.ok) return; // mantém os placeholders do HTML em caso de erro
+function loadGallery() {
+  const photos = [...GALLERY_PHOTOS];
 
-    const files = await res.json();
-    const photos = files.filter(
-      (f) => f.type === "file" && /\.(jpe?g|png|gif|webp)$/i.test(f.name)
-    );
-
-    if (photos.length === 0) return; // mantém os placeholders
-
-    // embaralha a ordem das fotos a cada carregamento da página
-    for (let i = photos.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [photos[i], photos[j]] = [photos[j], photos[i]];
-    }
-
-    galleryEl.innerHTML = photos
-      .map(
-        (photo) => `
-        <figure class="gallery-item">
-          <img src="${photo.download_url}" alt="momento nosso" loading="lazy" />
-        </figure>`
-      )
-      .join("");
-  } catch (err) {
-    // sem internet ou API indisponível: mantém os placeholders
+  // embaralha a ordem das fotos a cada carregamento da página
+  for (let i = photos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [photos[i], photos[j]] = [photos[j], photos[i]];
   }
+
+  galleryEl.innerHTML = photos
+    .map(
+      (src) => `
+      <figure class="gallery-item">
+        <img src="${src}" alt="momento nosso" loading="lazy" />
+      </figure>`
+    )
+    .join("");
 }
 
 loadGallery();

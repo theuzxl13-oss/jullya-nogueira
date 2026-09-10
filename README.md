@@ -24,10 +24,11 @@ assets/img/           fotos do casal (adicione aqui)
      e substitua o texto pela sua carta de verdade.
 
 3. **Fotos**
-   - A galeria carrega automaticamente as imagens de `assets/img/` direto do
-     GitHub — não precisa editar o HTML. Basta subir os arquivos para essa
-     pasta (manualmente pelo GitHub, ou mandando as fotos aqui para que
-     sejam adicionadas).
+   - Suba os arquivos para `assets/img/` (manualmente pelo GitHub, ou
+     mandando as fotos aqui para que sejam adicionadas) e acrescente o
+     nome de cada arquivo na lista `GALLERY_PHOTOS` em
+     `assets/js/script.js`. A ordem de exibição é embaralhada
+     automaticamente a cada carregamento da página.
 
 4. **Motivos para te amar**
    - Em `assets/js/script.js`, edite a lista `REASONS` com seus próprios motivos.
@@ -39,6 +40,15 @@ assets/img/           fotos do casal (adicione aqui)
 3. Selecione a branch (`main`, ou a branch atual) e a pasta `/ (root)`.
 4. Salve — em alguns minutos o site fica disponível em uma URL do tipo
    `https://<seu-usuario>.github.io/<repo>/`.
+
+## Repositório privado
+
+Dá para deixar o repositório privado (**Settings → General → Danger Zone →
+Change repository visibility**) sem quebrar o site: o GitHub Pages continua
+publicando a página normalmente, só quem tenta navegar pelo código no
+GitHub precisa de permissão. A galeria usa uma lista fixa de arquivos (veja
+acima) justamente para continuar funcionando nesse cenário, já que a API do
+GitHub exigiria login para listar fotos de um repositório privado.
 
 ## Editando sem baixar nada no PC
 
