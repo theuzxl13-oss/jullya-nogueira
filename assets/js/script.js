@@ -48,11 +48,17 @@ async function loadGallery() {
     if (!res.ok) return; // mantém os placeholders do HTML em caso de erro
 
     const files = await res.json();
-    const photos = files
-      .filter((f) => f.type === "file" && /\.(jpe?g|png|gif|webp)$/i.test(f.name))
-      .sort((a, b) => a.name.localeCompare(b.name));
+    const photos = files.filter(
+      (f) => f.type === "file" && /\.(jpe?g|png|gif|webp)$/i.test(f.name)
+    );
 
     if (photos.length === 0) return; // mantém os placeholders
+
+    // embaralha a ordem das fotos a cada carregamento da página
+    for (let i = photos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [photos[i], photos[j]] = [photos[j], photos[i]];
+    }
 
     galleryEl.innerHTML = photos
       .map(
