@@ -24,14 +24,11 @@ assets/img/           fotos do casal (adicione aqui)
      e substitua o texto pela sua carta de verdade.
 
 3. **Fotos**
-   - Suba as fotos para `assets/img/` (ex: `assets/img/1.jpg`)
-   - Em `index.html`, troque cada `<figure class="gallery-item placeholder">...</figure>`
-     por:
-     ```html
-     <figure class="gallery-item">
-       <img src="assets/img/1.jpg" alt="descrição da foto" loading="lazy" />
-     </figure>
-     ```
+   - A galeria carrega automaticamente as imagens de `assets/img/` direto do
+     GitHub — não precisa editar o HTML. Duas formas de adicionar fotos:
+     - Pelo botão **"+ adicionar foto"** no site (veja "Botão de adicionar
+       fotos" abaixo);
+     - Ou subindo o arquivo manualmente para `assets/img/` pelo GitHub.
 
 4. **Motivos para te amar**
    - Em `assets/js/script.js`, edite a lista `REASONS` com seus próprios motivos.
@@ -43,6 +40,30 @@ assets/img/           fotos do casal (adicione aqui)
 3. Selecione a branch (`main`, ou a branch atual) e a pasta `/ (root)`.
 4. Salve — em alguns minutos o site fica disponível em uma URL do tipo
    `https://<seu-usuario>.github.io/<repo>/`.
+
+## Botão de adicionar fotos
+
+A galeria funciona como um pequeno "banco de dados": as fotos são salvas
+direto no repositório do GitHub (pasta `assets/img/`) através do botão
+**"+ adicionar foto"** no site. Assim, qualquer pessoa que abrir o site vê
+as mesmas fotos — não fica preso a um navegador ou dispositivo.
+
+Para poder adicionar fotos (só quem tiver o token consegue postar; quem
+só visita o site não vê nem usa esse botão de forma alguma):
+
+1. No GitHub, vá em **Settings → Developer settings → Personal access
+   tokens → Fine-grained tokens → Generate new token**.
+2. Em "Repository access", selecione **Only select repositories** e
+   escolha `jullya-nogueira`.
+3. Em "Permissions", dê acesso de **Contents: Read and write**.
+4. Defina uma validade (ex: 90 dias) e gere o token.
+5. No site, clique em **"+ adicionar foto"**, cole o token quando for
+   solicitado e escolha a(s) foto(s). O token fica salvo só no navegador
+   usado (em `localStorage`), então cada pessoa cola o token uma vez no
+   próprio celular/computador.
+
+**Importante:** trate esse token como uma senha — não compartilhe, e
+revogue/gere um novo se o navegador for usado por outra pessoa.
 
 ## Editando sem baixar nada no PC
 

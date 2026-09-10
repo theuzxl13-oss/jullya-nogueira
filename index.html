@@ -47,10 +47,19 @@
   <main>
     <section class="section gallery-section">
       <h2 class="section-title">nossos momentos</h2>
-      <p class="section-hint">
-        <!-- Troque os itens abaixo por fotos reais em assets/img/ (ex: assets/img/1.jpg) -->
-        adicione as fotos de vocês em <code>assets/img/</code> e troque os placeholders abaixo
-      </p>
+      <p class="section-hint">adicione a nossa galeria</p>
+
+      <div class="gallery-actions">
+        <button class="add-photo-btn" id="add-photo-btn" type="button">
+          <span>+</span> adicionar foto
+        </button>
+        <input type="file" id="photo-input" accept="image/*" multiple hidden />
+      </div>
+      <p class="upload-status" id="upload-status" hidden></p>
+
+      <!-- Preenchido automaticamente a partir de assets/img/ no GitHub.
+           Os placeholders abaixo só aparecem se a galeria ainda estiver vazia
+           ou se não for possível carregar as fotos. -->
       <div class="gallery" id="gallery">
         <figure class="gallery-item placeholder">
           <span>foto 1</span>
