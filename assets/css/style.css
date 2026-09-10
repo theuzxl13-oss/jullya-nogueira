@@ -204,58 +204,6 @@ body {
   font-style: normal;
 }
 
-/* ---------- gallery actions ---------- */
-.gallery-actions {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.2rem;
-}
-
-.add-photo-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--rose-500);
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 0.65rem 1.4rem;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.add-photo-btn span {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.add-photo-btn:hover {
-  background: var(--rose-600);
-  transform: translateY(-1px);
-}
-
-.add-photo-btn:disabled {
-  opacity: 0.6;
-  cursor: wait;
-  transform: none;
-}
-
-.upload-status {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  font-style: italic;
-  margin: 0 0 1.5rem;
-}
-
-.upload-status.error {
-  color: var(--rose-600);
-}
-
 /* ---------- gallery ---------- */
 .gallery {
   display: grid;
