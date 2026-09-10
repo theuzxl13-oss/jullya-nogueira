@@ -1,6 +1,6 @@
 // ---------- contador de tempo juntos ----------
 // Edite a data abaixo para o dia em que vocês começaram a namorar.
-const START_DATE = new Date("2024-02-14T00:00:00");
+const START_DATE = new Date("2023-02-14T00:00:00");
 
 function updateCounter() {
   const now = new Date();

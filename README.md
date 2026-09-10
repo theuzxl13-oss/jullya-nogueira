@@ -1,7 +1,8 @@
 # Para Jullya, com amor 💕
 
-Site romântico feito para a Jullya. Estático (HTML/CSS/JS puro), sem build,
-sem dependências — dá para publicar direto no GitHub Pages.
+Site romântico feito por Matheus Marcelino de Andrade para Jullya Nogueira
+de Deus. Estático (HTML/CSS/JS puro), sem build, sem dependências — dá
+para publicar direto no GitHub Pages.
 
 ## Estrutura
 
@@ -15,7 +16,7 @@ assets/img/           fotos do casal (adicione aqui)
 ## O que ainda falta personalizar
 
 1. **Data de início do relacionamento**
-   - Em `assets/js/script.js`, edite a linha `const START_DATE = new Date("2024-02-14T00:00:00");`
+   - Em `assets/js/script.js`, edite a linha `const START_DATE = new Date("2023-02-14T00:00:00");`
    - Em `index.html`, atualize o texto dentro de `#start-date-label`
 
 2. **Carta romântica**
